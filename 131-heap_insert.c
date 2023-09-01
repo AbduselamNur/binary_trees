@@ -9,7 +9,7 @@ heap_t *heap_insert(heap_t **root, int value)
 	if (!(*root))
 		return (*root = binary_tree_node(NULL, value));
 	tr = *root;
-	size = binary_tree_size(tree);
+	size = binary_tree_size(tr);
 	leaves = size;
 	for (level = 0, sub = 1; leaves >= sub; sub *= 2, level++)
 		leaves -= sub;
