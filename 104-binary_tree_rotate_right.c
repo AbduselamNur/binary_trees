@@ -1,25 +1,25 @@
 #include "binary_trees.h"
 binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree)
 {
-	binary_tree_t *t = NULL, *parent;
+	binary_tree_t *tm = NULL, *parent;
 
 	if (!tree || !tree->left)
-		return (NULL);
-	t = tree;
+			return (NULL);
+	tm = tree;
 	parent = tree->parent;
 	tree = tree->left;
 	tree->parent = NULL;
 	if (tree->right)
-	{
-		t->left = tree->right;
-		tree->right->parent = t;
-	}
+		{
+				tm->left = tree->right;
+					tree->right->parent = tm;
+					}
 	else
-		t->left = NULL;
-	t->parent = tree;
-	tree->right = tmp;
+			tm->left = NULL;
+	tm->parent = tree;
+	tree->right = tm;
 	if (parent)
-		parent->left = tree;
+			parent->left = tree;
 	tree->parent = parent;
 	return (tree);
-}
+}	
