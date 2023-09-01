@@ -1,9 +1,9 @@
 #include "binary_trees.h"
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	size_t hei = 0;
+	size_t h = 0;
 	size_t nod = 0;
-	size_t pow = 0;
+	size_t p = 0;
 
 	if (!tree)
 		return (0);
@@ -11,11 +11,11 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	if (!tree->right && !tree->left)
 		return (1);
 
-	hei = binary_tree_height(tree);
+	h = binary_tree_height(tree);
 	nod = binary_tree_size(tree);
 
-	pow = (size_t)_pow_recursion(2, height + 1);
-	return (pow - 1 == nod);
+	p = (size_t)_pow_recursion(2, h + 1);
+	return (p - 1 == nod);
 }
 
 int _pow_recursion(int x, int y)
@@ -28,6 +28,7 @@ int _pow_recursion(int x, int y)
 		return (x * _pow_recursion(x, y - 1));
 
 }
+
 size_t binary_tree_size(const binary_tree_t *tree)
 {
 	if (!tree)
@@ -35,6 +36,7 @@ size_t binary_tree_size(const binary_tree_t *tree)
 
 	return (binary_tree_size(tree->left) + binary_tree_size(tree->right) + 1);
 }
+
 size_t binary_tree_height(const binary_tree_t *tree)
 {
 	size_t h_l = 0;
